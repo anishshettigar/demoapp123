@@ -1,35 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [bgcolor, setBgcolor] = useState("white");
+  const changeColor = () => {
+    const colors=["red","orange","yellow","green","blue"];
+    const random=colors[Math.floor(Math.random()*colors.length)];
+    setBgcolor(random)
+  };
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div style={{backgroundColor:bgcolor,height:"100vh"}}>
+      <p>Change Background</p>
+      <button onClick={changeColor}>Change Background</button>
+    </div>
+    
+  );
 }
 
-export default App
+export default App;
